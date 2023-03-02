@@ -56,6 +56,16 @@ vim.cmd("let delimitMate_expand_cr = 2")
 -- shortcut for fzf
 vim.keymap.set("n", "f", "<cmd>FZF<cr>", { silent = true })
 
+-- run rustfmt on save
+local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.rs",
+	callback = function()
+		vim.lsp.buf.format({ timeout_ms = 200 })
+	end,
+	group = format_sync_grp,
+})
+
 -- plugin stuff
 local ensure_packer = function()
 	local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"

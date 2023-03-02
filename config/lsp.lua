@@ -8,6 +8,12 @@ if vim.fn.executable("clangd") > 0 then
 	}
 end
 
+if vim.fn.executable("rust-analyzer") > 0 then
+	lspconfig.rust_analyzer.setup {
+		capabilities = capabilities,
+	}
+end
+
 vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })
