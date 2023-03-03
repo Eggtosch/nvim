@@ -100,6 +100,7 @@ return require("packer").startup {
 
 		-- lsp stuff
 		use { "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('config.lsp')]] }
+		use { "rust-lang/rust.vim", event = "VimEnter" }
 
 		-- nvim status line
 		use { "nvim-lualine/lualine.nvim", event = "VimEnter", config = [[require('config.lualine')]] }
