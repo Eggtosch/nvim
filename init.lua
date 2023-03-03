@@ -37,6 +37,7 @@ vim.opt.showcmd = false
 
 -- set the color scheme
 vim.cmd("colorscheme cinnabar")
+vim.opt.termguicolors = true
 
 -- set default language
 vim.cmd [[language en_US.UTF-8]]
