@@ -20,7 +20,8 @@ vim.fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "Diagno
 vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 vim.diagnostic.config {
-  virtual_text = true,
-  signs = true,
-  severity_sort = true,
+	underline = false,
+	virtual_text = true,
+	signs = true,
+	severity_sort = true,
 }
