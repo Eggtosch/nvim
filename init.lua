@@ -66,6 +66,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = format_sync_grp,
 })
 
+-- open lsp diagnostics window with of
+vim.keymap.set("n", "of", "<cmd>lua vim.diagnostic.open_float()<cr>")
+
 -- plugin stuff
 local ensure_packer = function()
 	local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
