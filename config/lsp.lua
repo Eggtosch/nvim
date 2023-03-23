@@ -5,6 +5,7 @@ if vim.fn.executable("clangd") > 0 then
 	lspconfig.clangd.setup {
 		capabilities = capabilities,
 		filetypes = {"c", "cpp", "cc"},
+		cmd = {"clangd", "--header-insertion=never"},
 	}
 end
 
