@@ -55,7 +55,8 @@ vim.opt.foldlevelstart = 99
 vim.cmd("let delimitMate_expand_cr = 2")
 
 -- shortcut for fzf
-vim.keymap.set("n", "f", "<cmd>FzfLua files<cr>", { silent = true })
+vim.keymap.set("n", "ff", "<cmd>FzfLua files<cr>", { silent = true })
+vim.keymap.set("n", "fg", "<cmd>FzfLua live_grep<cr>", { silent = true })
 
 -- run rustfmt on save
 local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
