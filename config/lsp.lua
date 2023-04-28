@@ -12,6 +12,13 @@ end
 if vim.fn.executable("rust-analyzer") > 0 then
 	lspconfig.rust_analyzer.setup {
 		capabilities = capabilities,
+		settings = {
+			["rust-analyzer"] = {
+				diagnostics = {
+					disabled = {"unresolved-proc-macro"}
+				}
+			}
+		}
 	}
 end
 
