@@ -51,6 +51,11 @@ vim.opt.undofile = true
 -- expand all blocks
 vim.opt.foldlevelstart = 99
 
+-- show tabline and cycle through tabs with tab and Shift-tab
+vim.opt.showtabline = 1
+vim.keymap.set("n", "<tab>", "<cmd>tabnext<cr>", { silent = true })
+vim.keymap.set("n", "<s-tab>", "<cmd>tabprevious<cr>", { silent = true })
+
 -- indent in next line after an opening {
 vim.cmd("let delimitMate_expand_cr = 2")
 

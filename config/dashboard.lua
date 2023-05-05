@@ -43,5 +43,8 @@ require("dashboard").setup {
 		header = header,
 		center = center,
 	},
+	hide = {
+		tabline = false,
+	},
 }
 
