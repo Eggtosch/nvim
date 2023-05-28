@@ -1,11 +1,13 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require("lspconfig")
 
+local query_drivers = {"/usr/bin/gcc", "/usr/bin/clang", "/home/oskar/.espressif/tools/xtensa-*-elf/*/xtensa-*-elf/bin/xtensa-*-elf-gcc"}
+
 if vim.fn.executable("clangd") > 0 then
 	lspconfig.clangd.setup {
 		capabilities = capabilities,
 		filetypes = {"c", "cpp", "cc"},
-		cmd = {"clangd", "--header-insertion=never"},
+		cmd = {"clangd", "--header-insertion=never", "--query-driver=" .. table.concat(query_drivers, ",")},
 	}
 end
 
