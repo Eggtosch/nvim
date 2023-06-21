@@ -332,8 +332,7 @@ if g:cinnabar_transparent_background == 1 && !has('gui_running')
 else
   call s:HL('StatusLineNC', s:black, s:black)
   call s:HL('StatusLineTermNC', s:black, s:black)
-  " call s:HL('VertSplit', s:bright_white, s:black)
-  call s:HL('VertSplit', s:black, s:black)
+  call s:HL('VertSplit', s:orange, s:black)
   call s:HL('WildMenu', s:blue, s:black, s:bold)
 endif
 

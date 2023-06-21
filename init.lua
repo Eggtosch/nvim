@@ -52,9 +52,17 @@ vim.opt.undofile = true
 vim.opt.foldlevelstart = 99
 
 -- show tabline and cycle through tabs with tab and Shift-tab
+-- fzflua opens file in new tab with Ctrl-t
 vim.opt.showtabline = 1
 vim.keymap.set("n", "<tab>", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set("n", "<s-tab>", "<cmd>tabprevious<cr>", { silent = true })
+
+-- switch between panes
+-- fzflua does split with Ctrl-s and vsplit with Ctrl-v
+vim.keymap.set("n", "<C-S-Up>", "<C-w>k", { silent = true })
+vim.keymap.set("n", "<C-S-Down>", "<C-w>j", { silent = true })
+vim.keymap.set("n", "<C-S-Left>", "<C-w>h", { silent = true })
+vim.keymap.set("n", "<C-S-Right>", "<C-w>l", { silent = true })
 
 -- indent in next line after an opening {
 vim.cmd("let delimitMate_expand_cr = 2")
