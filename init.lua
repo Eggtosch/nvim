@@ -121,7 +121,7 @@ return require("packer").startup {
 		use { "rust-lang/rust.vim", event = "VimEnter" }
 
 		-- display lsp status messages
-		use { "j-hui/fidget.nvim", after = "nvim-lspconfig", config = [[require('config.fidget')]] }
+		use { "j-hui/fidget.nvim", after = "nvim-lspconfig", tag = "legacy", config = [[require('config.fidget')]] }
 
 		-- nvim status line
 		use { "nvim-lualine/lualine.nvim", event = "VimEnter", config = [[require('config.lualine')]] }
