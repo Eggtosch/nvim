@@ -51,6 +51,10 @@ vim.opt.undofile = true
 -- expand all blocks
 vim.opt.foldlevelstart = 99
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- show tabline and cycle through tabs with tab and Shift-tab
 -- fzflua opens file in new tab with Ctrl-t
 vim.opt.showtabline = 1
@@ -70,6 +74,9 @@ vim.cmd("let delimitMate_expand_cr = 2")
 -- shortcuts for fzf
 vim.keymap.set("n", "ff", "<cmd>FzfLua files<cr>", { silent = true })
 vim.keymap.set("n", "fg", "<cmd>FzfLua live_grep<cr>", { silent = true })
+
+-- shortcuts for nvim-tree
+vim.keymap.set("n", "bf", "<cmd>NvimTreeFocus<cr>", { silent = true })
 
 -- run rustfmt on save
 local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
@@ -128,6 +135,9 @@ return require("packer").startup {
 
 		-- dashboard when opening nvim without a file
 		use { "glepnir/dashboard-nvim", event = "VimEnter", config = [[require('config.dashboard')]] }
+
+		-- file browser
+		use { "nvim-tree/nvim-tree.lua", config = [[require('config.nvim-tree')]] }
 
 		-- see git diff signs in number column
 		use { "lewis6991/gitsigns.nvim", config = [[require('config.gitsigns')]] }
