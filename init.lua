@@ -67,7 +67,7 @@ vim.keymap.set("n", "<C-S-Right>", "<C-w>l", { silent = true })
 -- indent in next line after an opening {
 vim.cmd("let delimitMate_expand_cr = 2")
 
--- shortcut for fzf
+-- shortcuts for fzf
 vim.keymap.set("n", "ff", "<cmd>FzfLua files<cr>", { silent = true })
 vim.keymap.set("n", "fg", "<cmd>FzfLua live_grep<cr>", { silent = true })
 
