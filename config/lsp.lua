@@ -3,11 +3,29 @@ local lspconfig = require("lspconfig")
 
 local query_drivers = {"/usr/bin/gcc", "/usr/bin/clang", "/home/oskar/.espressif/tools/xtensa-*-elf/*/xtensa-*-elf/bin/xtensa-*-elf-gcc"}
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 if vim.fn.executable("clangd") > 0 then
 	lspconfig.clangd.setup {
 		capabilities = capabilities,
 		filetypes = {"c", "cpp", "cc"},
-		cmd = {"clangd", "--header-insertion=never", "--query-driver=" .. table.concat(query_drivers, ",")},
+		cmd = {
+			"clangd",
+			"--header-insertion=never",
+			"--query-driver=" .. table.concat(query_drivers, ",")
+		},
+		on_attach = function(client, bufnr)
+			if client.supports_method("textDocument/formatting") then
+				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					group = augroup,
+					buffer = bufnr,
+					callback = function()
+						vim.lsp.buf.format()
+					end,
+				})
+			end
+		end,
 	}
 end
 
