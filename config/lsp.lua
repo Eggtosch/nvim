@@ -5,6 +5,23 @@ local query_drivers = {"/usr/bin/gcc", "/usr/bin/clang", "/home/oskar/.espressif
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+function clangd_fmt(client, bufnr)
+	fmt_path = vim.fn.resolve(vim.fn.getcwd() .. "/.clang-format")
+	if vim.fn.empty(vim.fn.glob(fmt_path)) > 0 then
+		return
+	end
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.format()
+			end,
+		})
+	end
+end
+
 if vim.fn.executable("clangd") > 0 then
 	lspconfig.clangd.setup {
 		capabilities = capabilities,
@@ -14,18 +31,7 @@ if vim.fn.executable("clangd") > 0 then
 			"--header-insertion=never",
 			"--query-driver=" .. table.concat(query_drivers, ",")
 		},
-		on_attach = function(client, bufnr)
-			if client.supports_method("textDocument/formatting") then
-				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = bufnr,
-					callback = function()
-						vim.lsp.buf.format()
-					end,
-				})
-			end
-		end,
+		on_attach = clangd_fmt,
 	}
 end
 
