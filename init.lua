@@ -153,7 +153,7 @@ return require("packer").startup {
 		use { 'ethanholz/nvim-lastplace', config = [[require('config.lastplace')]] }
 
 		-- auto close parenthesis
-		use { 'Raimondi/delimitMate' }
+		use { 'windwp/nvim-autopairs', config = [[require('config.autopairs')]] }
 
 		-- fzf
 		use { 'ibhagwan/fzf-lua' }
