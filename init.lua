@@ -61,6 +61,10 @@ vim.opt.showtabline = 1
 vim.keymap.set("n", "<tab>", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set("n", "<s-tab>", "<cmd>tabprevious<cr>", { silent = true })
 
+-- open and close diffview
+vim.keymap.set("n", "do", "<cmd>DiffviewOpen<cr>", { silent = true })
+vim.keymap.set("n", "dc", "<cmd>DiffviewClose<cr>", { silent = true })
+
 -- switch between panes
 -- fzflua does split with Ctrl-s and vsplit with Ctrl-v
 vim.keymap.set("n", "<C-S-Up>", "<C-w>k", { silent = true })
@@ -141,6 +145,9 @@ return require("packer").startup {
 
 		-- see git diff signs in number column
 		use { "lewis6991/gitsigns.nvim", config = [[require('config.gitsigns')]] }
+
+		-- open git diff view
+		use { "sindrets/diffview.nvim" }
 
 		-- remember last cursor position in files
 		use { 'ethanholz/nvim-lastplace', config = [[require('config.lastplace')]] }
