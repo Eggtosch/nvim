@@ -146,14 +146,11 @@ return require("packer").startup {
 		-- file browser
 		use { "nvim-tree/nvim-tree.lua", config = [[require('config.nvim-tree')]] }
 
-		-- see git diff signs in number column
+		-- git stuff
 		use { "lewis6991/gitsigns.nvim", config = [[require('config.gitsigns')]] }
-
-		-- open git diff view
 		use { "sindrets/diffview.nvim" }
-
-		-- lazygit
 		use { "kdheepak/lazygit.nvim" }
+		use { "tpope/vim-fugitive" }
 
 		-- remember last cursor position in files
 		use { 'ethanholz/nvim-lastplace', config = [[require('config.lastplace')]] }
