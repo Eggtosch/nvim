@@ -10,6 +10,9 @@ local function clangd_fmt(client, bufnr)
 	if vim.fn.empty(vim.fn.glob(fmt_path)) > 0 then
 		return
 	end
+	if string.find(fmt_path, "streamsdk") then
+		return
+	end
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
