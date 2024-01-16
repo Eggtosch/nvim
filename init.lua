@@ -82,6 +82,9 @@ vim.keymap.set("n", "fg", "<cmd>FzfLua live_grep<cr>", { silent = true })
 -- shortcuts for nvim-tree
 vim.keymap.set("n", "bf", "<cmd>NvimTreeFocus<cr>", { silent = true })
 
+-- shortcuts for lazygit
+vim.keymap.set("n", "lg", "<cmd>LazyGit<cr>", { silent = true })
+
 -- run rustfmt on save
 local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -148,6 +151,9 @@ return require("packer").startup {
 
 		-- open git diff view
 		use { "sindrets/diffview.nvim" }
+
+		-- lazygit
+		use { "kdheepak/lazygit.nvim" }
 
 		-- remember last cursor position in files
 		use { 'ethanholz/nvim-lastplace', config = [[require('config.lastplace')]] }
