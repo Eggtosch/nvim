@@ -1,3 +1,6 @@
+-- set leader key
+vim.g.mapleader = ","
+
 -- set Ctrl-q as alias for Esc
 vim.keymap.set("i", "<C-q>", "<Esc>")
 vim.keymap.set("n", "<C-q>", "<Esc>")
@@ -62,8 +65,8 @@ vim.keymap.set("n", "<tab>", "<cmd>tabnext<cr>", { silent = true })
 vim.keymap.set("n", "<s-tab>", "<cmd>tabprevious<cr>", { silent = true })
 
 -- open and close diffview
-vim.keymap.set("n", "do", "<cmd>DiffviewOpen<cr>", { silent = true })
-vim.keymap.set("n", "dc", "<cmd>DiffviewClose<cr>", { silent = true })
+vim.keymap.set("n", "<Leader>do", "<cmd>DiffviewOpen<cr>", { silent = true })
+vim.keymap.set("n", "<Leader>dc", "<cmd>DiffviewClose<cr>", { silent = true })
 
 -- switch between panes
 -- fzflua does split with Ctrl-s and vsplit with Ctrl-v
@@ -76,14 +79,14 @@ vim.keymap.set("n", "<C-S-Right>", "<C-w>l", { silent = true })
 vim.cmd("let delimitMate_expand_cr = 2")
 
 -- shortcuts for fzf
-vim.keymap.set("n", "ff", "<cmd>FzfLua files<cr>", { silent = true })
-vim.keymap.set("n", "fg", "<cmd>FzfLua live_grep<cr>", { silent = true })
+vim.keymap.set("n", "<Leader>ff", "<cmd>FzfLua files<cr>", { silent = true })
+vim.keymap.set("n", "<Leader>fg", "<cmd>FzfLua live_grep<cr>", { silent = true })
 
 -- shortcuts for nvim-tree
-vim.keymap.set("n", "bf", "<cmd>NvimTreeFocus<cr>", { silent = true })
+vim.keymap.set("n", "<Leader>bf", "<cmd>NvimTreeFocus<cr>", { silent = true })
 
 -- shortcuts for lazygit
-vim.keymap.set("n", "lg", "<cmd>LazyGit<cr>", { silent = true })
+vim.keymap.set("n", "<Leader>lg", "<cmd>LazyGit<cr>", { silent = true })
 
 -- run rustfmt on save
 local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
@@ -95,8 +98,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = format_sync_grp,
 })
 
--- open lsp diagnostics window with of
-vim.keymap.set("n", "of", "<cmd>lua vim.diagnostic.open_float()<cr>")
+-- lsp keybinds
+vim.keymap.set("n", "<Leader>of", vim.diagnostic.open_float)
+vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.references)
+vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
 
 -- plugin stuff
 local ensure_packer = function()
