@@ -5,8 +5,8 @@ local query_drivers = {"/usr/bin/gcc", "/usr/bin/clang", "/home/oskar/.espressif
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-function clangd_fmt(client, bufnr)
-	fmt_path = vim.fn.resolve(vim.fn.getcwd() .. "/.clang-format")
+local function clangd_fmt(client, bufnr)
+	local fmt_path = vim.fn.resolve(vim.fn.getcwd() .. "/.clang-format")
 	if vim.fn.empty(vim.fn.glob(fmt_path)) > 0 then
 		return
 	end
@@ -49,14 +49,19 @@ if vim.fn.executable("rust-analyzer") > 0 then
 end
 
 if vim.fn.executable("lua-language-server") > 0 then
+	local project_path = vim.fn.resolve(vim.fn.getcwd())
+	local workspace_settings = {}
+	if string.find(project_path, ".config/nvim") then
+		workspace_settings = {
+			checkThirdParty = false,
+			library = { vim.env.VIMRUNTIME }
+		}
+	end
 	lspconfig.lua_ls.setup {
 		settings = {
 			Lua = {
 				runtime = { version = "LuaJIT" },
-				workspace = {
-					checkThirdParty = false,
-					library = { vim.env.VIMRUNTIME }
-				}
+				workspace = workspace_settings,
 			}
 		}
 	}
