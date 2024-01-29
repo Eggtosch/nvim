@@ -48,6 +48,20 @@ if vim.fn.executable("rust-analyzer") > 0 then
 	}
 end
 
+if vim.fn.executable("lua-language-server") > 0 then
+	lspconfig.lua_ls.setup {
+		settings = {
+			Lua = {
+				runtime = { version = "LuaJIT" },
+				workspace = {
+					checkThirdParty = false,
+					library = { vim.env.VIMRUNTIME }
+				}
+			}
+		}
+	}
+end
+
 vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })
