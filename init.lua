@@ -155,7 +155,6 @@ return require("packer").startup {
 		-- git stuff
 		use { "lewis6991/gitsigns.nvim", config = [[require('config.gitsigns')]] }
 		use { "sindrets/diffview.nvim" }
-		use { "kdheepak/lazygit.nvim" }
 		use { "tpope/vim-fugitive" }
 
 		-- remember last cursor position in files
