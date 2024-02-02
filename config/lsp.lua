@@ -1,7 +1,7 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require("lspconfig")
 
-local query_drivers = {"/usr/bin/gcc", "/usr/bin/clang", "/home/oskar/.espressif/tools/xtensa-*-elf/*/xtensa-*-elf/bin/xtensa-*-elf-gcc"}
+local query_drivers = {"/usr/bin/gcc", "/usr/bin/clang"}
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
