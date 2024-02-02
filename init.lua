@@ -118,7 +118,7 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-package.path = "/home/oskar/.config/nvim/?.lua;" .. package.path
+package.path = vim.env.HOME .. "/.config/nvim/?.lua;" .. package.path
 
 return require("packer").startup {
 	function(use)
