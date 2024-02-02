@@ -12,7 +12,7 @@ function diamond_fmt(client, bufnr)
 end
 
 vim.lsp.start({
-	cmd = { "/home/oskar/programs/diamond-c/bin/diamond", "--lsp" },
+	cmd = { "diamond", "--lsp" },
 	root_dir = vim.fn.getcwd(),
 	on_attach = diamond_fmt,
 })
