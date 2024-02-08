@@ -102,7 +102,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.keymap.set("n", "<Leader>of", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.references)
-vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
+vim.keymap.set("n", "<Leader>rn", function() vim.lsp.buf.rename() vim.cmd("wa") end)
 
 -- plugin stuff
 local ensure_packer = function()
