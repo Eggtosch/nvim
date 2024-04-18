@@ -7,6 +7,9 @@ vim.keymap.set("n", "<C-q>", "<Esc>")
 vim.keymap.set("v", "<C-q>", "<Esc>")
 vim.keymap.set("s", "<C-q>", "<Esc>")
 
+vim.keymap.set("n", "<Up>", "gk")
+vim.keymap.set("n", "<Down>", "gj")
+
 -- enable line numbers
 vim.opt.number = true
 vim.opt.relativenumber = false
