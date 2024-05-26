@@ -172,6 +172,9 @@ return require("packer").startup {
 		-- remember recently used files
 		use { 'yegappan/mru' }
 
+		-- render markdown files in browser
+		use { "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end }
+
 		if packer_bootstrap then
 			require("packer").sync()
 		end
