@@ -458,6 +458,18 @@ hi! link Typedef cinnabarMagenta
 hi! link Delimiter cinnabarBrightWhite
 
 " }}}
+" Lsp Signs: {{{
+hi! link DiagnosticSignError cinnabarRed
+hi! link DiagnosticSignWarn cinnabarYellow
+hi! link DiagnosticSignInformation cinnabarWhite
+hi! link DiagnosticSignHint cinnabarWhite
+
+hi! link DiagnosticError cinnabarRed
+hi! link DiagnosticWarn cinnabarYellow
+hi! link DiagnosticInformation cinnabarWhite
+hi! link DiagnosticHint cinnabarWhite
+
+" }}}
 " Completion Menu: {{{
 
 if v:version >= 700
