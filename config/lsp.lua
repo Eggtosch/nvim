@@ -67,6 +67,11 @@ if vim.fn.executable("lua-language-server") > 0 then
 	}
 end
 
+-- https://github.com/arduino/arduino-language-server/pull/199
+if vim.fn.executable("arduino-language-server") > 0 then
+	lspconfig.arduino_language_server.setup {}
+end
+
 vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })

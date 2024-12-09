@@ -107,6 +107,8 @@ vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<Leader>gr", vim.lsp.buf.references)
 vim.keymap.set("n", "<Leader>rn", function() vim.lsp.buf.rename() vim.cmd("wa") end)
 
+vim.lsp.set_log_level("off")
+
 -- plugin stuff
 local ensure_packer = function()
 	local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
