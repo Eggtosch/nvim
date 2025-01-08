@@ -169,7 +169,7 @@ return require("packer").startup {
 		use { 'windwp/nvim-autopairs', config = [[require('config.autopairs')]] }
 
 		-- fzf
-		use { 'ibhagwan/fzf-lua' }
+		use { 'ibhagwan/fzf-lua', config = [[require('config.fzf')]] }
 
 		-- remember recently used files
 		use { 'yegappan/mru' }
