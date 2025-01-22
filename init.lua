@@ -84,6 +84,8 @@ vim.cmd("let delimitMate_expand_cr = 2")
 -- shortcuts for fzf
 vim.keymap.set("n", "<Leader>ff", "<cmd>FzfLua files<cr>", { silent = true })
 vim.keymap.set("n", "<Leader>fg", "<cmd>FzfLua live_grep<cr>", { silent = true })
+vim.keymap.set("n", "<Leader>gg", "<cmd>FzfLua git_bcommits<cr>", { silent = true })
+vim.keymap.set("n", "<Leader>man", "<cmd>FzfLua manpages<cr>", { silent = true })
 
 -- shortcuts for nvim-tree
 vim.keymap.set("n", "<Leader>bf", "<cmd>NvimTreeFocus<cr>", { silent = true })
