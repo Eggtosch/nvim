@@ -90,9 +90,6 @@ vim.keymap.set("n", "<Leader>man", "<cmd>FzfLua manpages<cr>", { silent = true }
 -- shortcuts for nvim-tree
 vim.keymap.set("n", "<Leader>bf", "<cmd>NvimTreeFocus<cr>", { silent = true })
 
--- shortcuts for lazygit
-vim.keymap.set("n", "<Leader>lg", "<cmd>LazyGit<cr>", { silent = true })
-
 -- run rustfmt on save
 local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
